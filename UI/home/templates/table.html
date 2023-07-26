@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Table To Display Uploaded Data</h2>
+
+  <table>
+    <tr>
+      <th> Profile Photo</th>
+      <th> Aadhar Card</th>
+      <th> Pan Card</th>
+
+      <th> Voter ID Proof</th>
+      <th> Marksheet</th>
+
+
+    </tr>
+    {% if form %}
+    {% for i in form %}
+    <tr>
+      <td><img src="{{i.pp.url}}" style="height: 100px; width: 100px;">
+        <a href="{{i.pp.url}}" download=""><button>Download</button></a>
+      </td>
+      <td><img src="{{i.ac.url}}" style="height: 100px; width: 100px;">
+        <a href="{{i.ac.url}}" download=""><button>Download</button></a>
+      </td>
+      <td><img src="{{i.pc.url}}" style="height: 100px; width: 100px;">
+        <a href="{{i.pc.url}}" download=""><button>Download</button></a>
+      </td>
+      <td><img src="{{i.vip.url}}" style="height: 100px; width: 100px;">
+        <a href="{{i.vip.url}}" download=""><button>Download</button></a>
+      </td>
+      <td><img src="{{i.ms.url}}" style="height: 100px; width: 100px;">
+        <a href="{{i.ms.url}}" download=""><button>Download</button></a>
+
+      </td>
+
+
+
+    </tr>
+    {% endfor %}
+    {% endif %}
+
+  </table>
+
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+{% comment %} {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Update</title>
+    <link rel="stylesheet" href="{% static 'ssstyles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Profile Update</h1>
+        <form>
+            <div class="form-group">
+                <label for="profile-photo">Profile Photo</label>
+                <input type="file" id="profile-photo" accept="image/*">
+                <div class="preview" id="profile-photo-preview"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="aadhar-card">Aadhar Card</label>
+                <input type="file" id="aadhar-card" accept=".pdf">
+                <div class="file-name" id="aadhar-card-file-name"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="pan-card">Pan Card</label>
+                <input type="file" id="pan-card" accept=".pdf">
+                <div class="file-name" id="pan-card-file-name"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="voter-id">Voter ID Proof</label>
+                <input type="file" id="voter-id" accept=".pdf">
+                <div class="file-name" id="voter-id-file-name"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="marksheet">Marksheet</label>
+                <input type="file" id="marksheet" accept=".pdf">
+                <div class="file-name" id="marksheet-file-name"></div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html> {% endcomment %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<form action="/profile_data/" enctype="multipart/form-data" method='post'>
+  {% csrf_token %}
+  <div class="container">
+    <h1>Profile Update</h1>
+    <hr>
+
+    <label for="email"><b> Profile Photo</b></label>
+    <input type="file" placeholder="Enter Email" name="ppn" id="email" required><br><br>
+    <hr>
+    <label for="psw"><b> Aadhar Card</b></label>
+    <input type="file" placeholder="Enter Password" name="acn" id="psw" required><br><br>
+    <hr>
+    <label for="psw-repeat"><b> Pan Card</b></label>
+    <input type="file" placeholder="Repeat Password" name="pan" id="psw-repeat" required><br><br>
+    <hr>
+    <label for="psw-repeat"><b> Voter ID Proof</b></label>
+    <input type="file" placeholder="Repeat Password" name="vipn" id="psw-repeat" required><br><br>
+    <hr>
+    <label for="psw-repeat"><b> Marksheet</b></label>
+    <input type="file" placeholder="Repeat Password" name="msn" id="psw-repeat" required><br><br>
+    <hr>
+
+    <button type="submit" class="registerbtn">Upload</button>
+  </div>
+</form>
+
+</body>
+</html>
